@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BTTH-06</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/5140c6ff3b.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <section class="form">
+      <h2 class="form-heading">Thao tác trên mảng</h2>
+      <div id="form">
+        <div class="form-create">
+          <button class="create-button" role="button">Tạo mảng</button>
+          <label for="create-button" class="array-processed" id="array"
+            >Ấn tạo mảng để khởi tạo giá trị
+          </label>
+        </div>
+        <input
+          type="text"
+          placeholder="Giá trị mảng sau khi xử lý"
+          class="array-processed"
+          id="sorted-array"
+          disabled
+        />
+        <div class="form-sort">
+          <div class="form-sort-increase">
+            <input
+              type="radio"
+              name="sort"
+              class="option-input"
+              id="increase-sort"
+            />
+            <label for="increase-sort" class="form-sort-label"
+              >Sắp xếp tăng</label
+            >
+          </div>
+          <div class="form-sort-decrease">
+            <input
+              type="radio"
+              name="sort"
+              class="option-input"
+              id="decrease-sort"
+            />
+            <label for="decrease-sort" class="form-sort-label"
+              >Sắp xếp giảm</label
+            >
+          </div>
+        </div>
+        <div class="form-add">
+          <div class="form-add-index">
+            <p></p>
+            <div class="form-add1">
+              <label for="add-index" class="add-label">Thêm vào vị trí</label>
+              <input type="text" id="add-index" class="add-index-input" />
+            </div>
+          </div>
+          <div class="form-add-value">
+            <p></p>
+            <div class="form-add1">
+              <label for="add-value" class="add-label">Giá trị</label>
+              <input type="text" id="add-value" class="add-value-input" />
+            </div>
+          </div>
+        </div>
+        <p id="isValid"></p>
+        <button class="add-button">Thêm</button>
+      </div>
+    </section>
+
+    <script src="./assets/javascript/main.js"></script>
+  </body>
+</html>
