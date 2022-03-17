@@ -69,7 +69,7 @@ addButton.addEventListener("click", (e) => {
     isValid.textContent = "Giá trị không hợp lệ!";
   } else {
     if (arrayHTML.length === 20) arrayHTML.pop();
-    if (arrayIndex > arrayHTML.length+1) {
+    if (arrayIndex > arrayHTML.length + 1) {
       arrayIndex = arrayHTML.length + 1;
       isValid.style.color = "#FFAA46";
       isValid.textContent = `Vị trí bạn nhập vượt quá độ dài của mảng. Tự động thêm giá trị vào cuối.`;
@@ -82,3 +82,42 @@ addButton.addEventListener("click", (e) => {
     sortArray();
   }
 });
+
+// =============== Clock ================
+
+let hourHand1 = document.querySelector("#hour-hand1");
+let hourHand2 = document.querySelector("#hour-hand2");
+let minuteHand1 = document.querySelector("#minute-hand1");
+let minuteHand2 = document.querySelector("#minute-hand2");
+let secondHand1 = document.querySelector("#second-hand1");
+let secondHand2 = document.querySelector("#second-hand2");
+let greating = document.querySelector(".clock-greating");
+let clock = document.querySelector(".clock-time");
+let setTime = () => {
+  let date = new Date();
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  let seconds = date.getSeconds();
+  hourHand1.src = `./assets/images/0${Math.floor(hours / 10)}.gif`;
+  hourHand2.src = `./assets/images/0${hours % 10}.gif`;
+  minuteHand1.src = `./assets/images/0${Math.floor(minutes / 10)}.gif`;
+  minuteHand2.src = `./assets/images/0${minutes % 10}.gif`;
+  secondHand1.src = `./assets/images/0${Math.floor(seconds / 10)}.gif`;
+  secondHand2.src = `./assets/images/0${seconds % 10}.gif`;
+  if (hours >= 0 && hours < 12) {
+    greating.textContent = "Chào buổi sáng";
+  } else if (hours >= 12 && hours < 17) {
+    greating.textContent = "Chào buổi chiều";
+  } else {
+    greating.textContent = "Chào buổi tối";
+  }
+};
+clock.addEventListener("click", e => {
+  greating.classList.add("blink");
+})
+greating.addEventListener("click", e => {
+  e.target.classList.add("blink");
+})
+window.onload = () => {
+  setInterval(setTime, 1000);
+};

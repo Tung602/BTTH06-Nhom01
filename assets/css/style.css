@@ -47,7 +47,7 @@ body {
 
 .form {
   width: 1050px;
-  margin: 100px auto;
+  margin: 30px auto 0 auto;
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -269,4 +269,48 @@ body {
   }
 }
 
+/* ============= Clock ============== */
+.clock{
+  width: 100%;
+}
+.clock-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 1050px;
+  height: 230px;
+  margin: 30px auto 0 auto;
+}
+.clock-time{
+  background-color: black;
+  cursor: pointer;
+}
+.clock-img{
+  height: 80px;
+  width: 55px;
+}
+.clock-greating{
+  font-size: 6rem;
+  color: #0a0e3c;
+  cursor: pointer;
+  transition: all 2s linear;
+}
+.blink{
+  animation: .4s linear condemned_blink_effect;
+  animation-iteration-count: 10;
+  color: red;
+  font-size: 9rem;
+}
 
+@keyframes condemned_blink_effect {
+  0% {
+    visibility: hidden;
+  }
+  50% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
