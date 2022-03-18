@@ -11,13 +11,6 @@ let isValid = document.querySelector("#isValid");
 let addButton = document.querySelector(".add-button");
 let arrayHTML = [];
 
-let randomNumber = () => {
-  while (true) {
-    let num = Math.floor(Math.random() * 101);
-    if (num >= 10) return num;
-  }
-};
-
 let sortArray = () => {
   let copyArrayHTML = [...arrayHTML];
   if (increaseSort.checked)
@@ -29,10 +22,10 @@ let sortArray = () => {
 // ============== generate random array ==============
 
 createButton.addEventListener("click", (e) => {
-  let arrayLength = Math.floor(Math.random() * 11) + 10;
   arrayHTML = [];
-  for (let i = 0; i < arrayLength; i++) {
-    arrayHTML.push(randomNumber());
+  let randomLength = Math.floor(Math.random() * 11) + 10;
+  for (let i = 0; i < randomLength; i++) {
+    arrayHTML.push(Math.floor(Math.random() * 91) + 10);
   }
   array.innerHTML = arrayHTML.join(", ");
   sortArray();
@@ -57,14 +50,7 @@ addButton.addEventListener("click", (e) => {
   if (arrayIndex == "" || arrayValue == "") {
     isValid.style.color = "red";
     isValid.textContent = "Nhập vị trí và giá trị cần thêm!";
-  } else if (
-    isNaN(arrayIndex) ||
-    isNaN(arrayValue) ||
-    arrayIndex <= 0 ||
-    arrayIndex > 20 ||
-    arrayValue < 10 ||
-    arrayValue > 100
-  ) {
+  } else if (isNaN(arrayIndex) || isNaN(arrayValue) || arrayIndex <= 0 || arrayValue < 10 || arrayValue > 100) {
     isValid.style.color = "red";
     isValid.textContent = "Giá trị không hợp lệ!";
   } else {
@@ -112,12 +98,12 @@ let setTime = () => {
     greating.textContent = "Chào buổi tối";
   }
 };
-clock.addEventListener("click", e => {
+clock.addEventListener("click", (e) => {
   greating.classList.add("blink");
-})
-greating.addEventListener("click", e => {
+});
+greating.addEventListener("click", (e) => {
   e.target.classList.add("blink");
-})
+});
 window.onload = () => {
   setInterval(setTime, 1000);
 };
